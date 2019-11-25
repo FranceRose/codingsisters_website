@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+
+
+<!-- {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %} -->
+
+{% block content %}
+
+  <style type="text/css">
+    form_group {
+           padding-top: 200px;
+        }
+  </style>
+
+  <form method="post" action="/enrolment/new/" role="form">{% csrf_token %}
+
+      <div class="form-group">
+
+        <label for="firstname">Prénom *</label>
+        <font color="#89023E">{{form.firstname.errors}} </font>
+        <input type="text" class="form-control" name= "firstname"  placeholder="Entre ton prénom" value={{form.firstname.value|default_if_none:''}} >
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Nom *</label>
+        <font color="#89023E">{{form.lastname.errors}}</font>
+        <input type="text" class="form-control" name= "lastname"  placeholder="Entre ton nom de famille" value={{form.lastname.value|default_if_none:''}} >
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail *</label>
+        <font color="#89023E">{{form.email.errors}}</font>
+        <input type="text" class="form-control" name = "email" placeholder="Entre ton adresse mail" value={{form.email.value|default_if_none:''}}>
+      </div>
+
+      <div class="form-group">
+        <label for="parent_email">E-mail d'un.e responsable légal.e *</label>
+        <font color="#89023E">{{form.parent_email.errors}}</font>
+        <input type="text" class="form-control" name = "parent_email" placeholder="Entre son adresse mail" value={{form.parent_email.value|default_if_none:''}}>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <font color="#89023E">{{form.phone.errors}}</font>
+        <input type="text" class="form-control" name = "phone" placeholder="Entre ton numéro de téléphone portable (facultatif)" value={{form.phone.value|default_if_none:''}}>
+      </div>
+
+
+      <div class="form-group">
+        <label for="highschool">Lycée d'origine (et la ville)</label>
+        <font color="#89023E">{{form.highschool.errors}}</font>
+        <input type="text" class="form-control" name = "highschool" placeholder="Entre le nom de ton lycée et la ville dans laquelle il se trouve (facultatif)" value={{form.highschool.value|default_if_none:''}}>
+      </div>
+
+            <label for = "name">Quel est ton niveau de programmation général ? </label>
+            <p>Pas de pression pour cette question. <font color="#89023E"><i>Vous êtes toutes les bienvenues !</i></font> Ta réponse nous permettra de mieux préparer les séances et te proposer des projets qui te conviennent.</p>
+
+      <div>
+
+         <label class = "radio">
+            <input type = "radio" name = "level_programing" id = "programing0" value = "0" {% if form.level_programing.value == '0' %}checked{% endif%}> Jamais touché !
+         </label>
+         
+         <label class = "radio">
+            <input type = "radio" name = "level_programing" id = "programing1" value = "1" {% if form.level_programing.value == '1' %}checked{% endif%}> J'en ai fait un peu sans plus.
+         </label>
+
+        <label class = "radio">
+            <input type = "radio" name = "level_programing" id = "programing2" value = "2" {% if form.level_programing.value == '2' %}checked{% endif%}> Je commence à voir de quoi il en retourne.
+         </label>
+         
+         <label class = "radio">
+            <input type = "radio" name = "level_programing" id = "programing3" value = "3" {% if form.level_programing.value == '3' %}checked{% endif%}> Je me débrouille.
+         </label>
+
+         <label class = "radio">
+            <input type = "radio" name = "level_programing" id = "programing4" value = "4" {% if form.level_programing.value == '4' %}checked{% endif%}> Je gère.
+         </label>
+      </div>
+
+
+            <label for = "name">Quel est ton niveau de programmation en Python ?</label>
+
+      <div>
+
+
+         <label class = "radio">
+            <input type = "radio" name = "level_python" id = "python0" value = "0" {% if form.level_python.value == '0' %}checked{% endif%}> Jamais touché !
+         </label>
+         
+         <label class = "radio">
+            <input type = "radio" name = "level_python" id = "python1" value = "1" {% if form.level_python.value == '1' %}checked{% endif%}> J'en ai fait un peu sans plus.
+         </label>
+
+        <label class = "radio">
+            <input type = "radio" name = "level_python" id = "python2" value = "2" {% if form.level_python.value == '2' %}checked{% endif%}> Je commence à voir de quoi il en retourne.
+         </label>
+         
+         <label class = "radio">
+            <input type = "radio" name = "level_python" id = "python3" value = "3" {% if form.level_python.value == '3' %}checked{% endif%}> Je me débrouille.
+         </label>
+
+         <label class = "radio">
+            <input type = "radio" name = "level_python" id = "python4" value = "4" {% if form.level_python.value == '4' %}checked{% endif%}> Je gère.
+         </label>
+      </div>
+
+
+<!--     <div class = "form-group">
+      <label for = "name"></label>
+      
+      <select class = "form-control">
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+         <option>5</option>
+      </select>
+
+    </div>
+ -->
+      <label for = "name">Pour quelle(s) session(s) souhaites-tu t'inscrire ? </label>
+      <p>Tu t'engages à venir à toutes les séances d'une session. Tu recevras un certificat de réussite.</p>
+
+      <div class="checkbox">
+      {% for checkbox in form.session %}
+          {{ checkbox }}
+<!--           <label class = "checkbox">
+            <input type = "checkbox" name = "session" id="session" {% if checkbox.value == True %}checked{% endif%}> {{checkbox.published}}
+         </label> -->
+      {% endfor %}
+      </div>
+
+<!--       <div class="form-group">
+        <label for="firstname">Ecris 'YES' si tu n'es pas un robot !</label>
+        <input type="text" class="form-control" id= "botcheck" placeholder=""/>
+      </div> -->
+
+    <label> E-mail de confirmation</label>
+    <div class = "checkbox">
+      <label><input name="confirmation_email" type = "checkbox" {% if form.confirmation_email.value == True %}checked{% endif%}> Coche si tu veux recevoir par mail une copie de ton inscription.</label>
+   </div>
+   
+
+    <button type = "submit" class = "btn btn-default">Submit</button>
+
+  </form>	
+{% endblock content %}

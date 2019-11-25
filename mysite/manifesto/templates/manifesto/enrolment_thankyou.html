@@ -1,0 +1,14 @@
+
+
+    {% extends "base.html" %}
+    {% block title %}Contact Us - Thank You{% endblock title %}
+    {% block content %}
+      <h3>Merci !</h3>
+      {%if confirmation_email == 'True' %}
+      	<p> Un mail de confirmation a été envoyé à l'adresse suivante : {{email}}</p>
+      {% endif %}
+      <p>Nous sommes très heureuses de te compter parmi les Coding Sisters ! A très vite</p>
+      <p> <a href="/">Page d'accueil</a></p>
+      <p> <a href="/enrolment/new">Soumettre un autre formulaire d'inscription</a></p>
+    {% endblock content %}
+  

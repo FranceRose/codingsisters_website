@@ -32,11 +32,40 @@ h3 a {
 
 /* HEADER */
 
-.page-header {
+/*.page-header {
     background-color: #FFC065;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+}*/
+
+
+.page-header {
+	height:150px;
+    	margin-left: 50px;
+	margin-bottom: 40px;
 }
+
+
+/*
+.page-header.logo {
+	width:6px;
+	height: 65px;
+	margin-right:10px;
+	vertical-align:middle;
+	margin:auto;
+}
+
+
+.page-header.name {
+	width:100px;
+	height:65px;
+	vertical-align:middle;
+	text-align:center;
+}
+*/
+
+
+
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;

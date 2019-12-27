@@ -56,8 +56,9 @@ class EnrolmentForm(forms.Form):
         email = data.get('email')
         parent_email = data.get('parent_email')
 
-        if email == parent_email:
+        if email == parent_email and (email != None):
             self._errors['parent_email'] = self.error_class(['Les deux addresses mails doivent être différentes.'])
+            print(email, parent_email)
             del self.cleaned_data['parent_email']
 
         return data

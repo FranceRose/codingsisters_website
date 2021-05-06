@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from datetime import datetime
 import locale
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 locale.setlocale(locale.LC_ALL, 'fr_FR.utf8')
 
@@ -10,6 +12,7 @@ class Session(models.Model):
     starting_date = models.DateField(default=datetime.now, blank=True)
     ending_date = models.DateField(default=datetime.now, blank=True)
     title = models.CharField(max_length=6, default='000000')
+    open_bool = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         self.title = self.starting_date.strftime('%Y%m')
@@ -23,10 +26,6 @@ class Session(models.Model):
                                                                             self.ending_date.strftime('%B'),
                                                                             duration)
 
-    def still_open(self):
-        if starting_date > datetime.now():
-            return True
-        return False
 
 
 class Person(models.Model):
@@ -35,7 +34,7 @@ class Person(models.Model):
     lastname = models.CharField(max_length=255)
     email = models.EmailField()
     parent_email = models.EmailField(null=True)
-    phone = models.CharField(max_length=255, null=True)
+    phone = PhoneNumberField()#models.CharField(max_length=255, null=True)#PheNumberField()
     highschool = models.CharField(max_length=255)
 
     # botcheck = models.CharField(max_length=6)
@@ -59,6 +58,5 @@ class Enrolment(models.Model):
     confirmation_email = models.BooleanField(default=True)
 
     # botcheck = models.CharField(max_length=6)
-
 
 

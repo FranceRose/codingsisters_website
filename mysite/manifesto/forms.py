@@ -1,5 +1,6 @@
 from django import forms
 from datetime import datetime
+from phonenumber_field.formfields import PhoneNumberField
 
 from .models import Enrolment, Person, Session
 
@@ -9,18 +10,20 @@ class EnrolmentForm(forms.Form):
     lastname = forms.CharField(max_length=255)
     email = forms.EmailField()
     parent_email = forms.EmailField()
-    phone = forms.CharField(max_length=255, required=False)
+    phone = PhoneNumberField(widget=forms.TextInput(), required=True)#forms.CharField(max_length=255)
     highschool = forms.CharField(max_length=255, required=False)
 
     level_programing = forms.IntegerField()
     level_python = forms.IntegerField()
-    
-    session = forms.ModelMultipleChoiceField(queryset=Session.objects.all(),
+   
+    session_queryset = Session.objects.all().filter(open_bool=True)
+    session = forms.ModelMultipleChoiceField(queryset=session_queryset,
                                     widget=forms.CheckboxSelectMultiple(choices=Session.objects.all()),
                                     required=True
                                     )
+    n_sessions = len(session_queryset)
 
-    confirmation_email = forms.BooleanField()
+    confirmation_email = forms.BooleanField(initial=False)
 
     def save(self):
         data = self.cleaned_data
@@ -47,6 +50,8 @@ class EnrolmentForm(forms.Form):
                             level_python=data['level_python'],
                             confirmation_email=data['confirmation_email'])
         enrolment.save()
+        enrolment.session.set(data['session'])
+        enrolment.save()
 
     # botcheck = forms.CharField(max_length=6)
 
@@ -62,8 +67,4 @@ class EnrolmentForm(forms.Form):
             del self.cleaned_data['parent_email']
 
         return data
-
-
-
-
 

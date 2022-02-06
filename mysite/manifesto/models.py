@@ -20,9 +20,13 @@ class Session(models.Model):
     
     def __str__(self):
         duration = int((self.ending_date - self.starting_date).days / 7) + 1
-        return "Du samedi {} {} au samedi {} {} inclus - {} séances".format(self.starting_date.strftime('%d'),
-                                                                            self.starting_date.strftime('%B'),
-                                                                            self.ending_date.strftime('%d'),
+        day_of_the_week = self.starting_date.weekday()
+        day_of_the_week = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'][int(day_of_the_week)]
+        return "Du {} {} {} au {} {} {} inclus - {} séances".format(day_of_the_week, 
+                                                                    self.starting_date.strftime('%d'),
+                                                                    self.starting_date.strftime('%B'),
+                                                                    day_of_the_week,
+                                                                    self.ending_date.strftime('%d'),
                                                                             self.ending_date.strftime('%B'),
                                                                             duration)
 

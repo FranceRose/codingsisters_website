@@ -1,4 +1,4 @@
-
+/*/*
 
 
 /* TEXT SETTINGS */
@@ -23,9 +23,10 @@ h3 a {
 
 
 .content {
-    margin-left: 100px;
+    margin-left: max(5vw, 10px);
     padding-bottom: 30px;
     margin-top:30px;
+    min-height: 100vh;
 }
 
 
@@ -48,10 +49,11 @@ h3 a {
 
 /* FOOTER */
 
-/*.page-footer {
-    background-color: #89023E;
+
+.page-footer {
+    background-color: #FFC065;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: max(10px, 1vh) max(10px, 5vw) max(10px, 1vh) max(20px, 2vw); /* top, right, bottom, left*/
     position: fixed;
     left: 0;
     bottom: 0;
@@ -59,12 +61,23 @@ h3 a {
     color: white;
     text-align: left;
 }
-*/
-/*.page-footer h1, .page-footer h1 a, .page-footer h1 a:visited, .page-footer h1 a:active {
-    color: #ffffff;
+
+.page-footer h1, .page-footer h1 a, .page-footer h1 a:visited, .page-footer h1 a:active {
+    color: #FFC065;
     font-size: 36pt;
     text-decoration: none;
-}*/
+}
+
+.myleftspan {
+    padding-right:max(10px, 5vw);
+    float: left;
+} 
+
+.myrightspan {
+    padding-left:max(10px, 10vw);
+    float: right;
+} 
+
 
 
 
@@ -74,7 +87,7 @@ h3 a {
     color: #ffffff;
     float: right;
     font-size: 26pt;
-    margin-right: 20px;
+    margin-right: 5vw;
 }
 
 /* Add a black background color to the top navigation */
@@ -88,7 +101,7 @@ h3 a {
   float: left;
   color: #ffffff;
   text-align: center;
-  padding: 14px 16px;
+  padding: min(max(6px, 1vw), 14px) max(10px, 1vw); /*top, right*/
   text-decoration: none;
   font-size: 17px;
 }
@@ -146,5 +159,12 @@ iframe{
 
 
 
+/*Body*/
+body {
+   min-height: 400px;
+   margin-bottom: 100px;
+   clear: both;
+}
 
-Context | Request Context
+
+/*Context | Request Context*/

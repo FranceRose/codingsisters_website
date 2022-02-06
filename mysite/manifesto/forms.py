@@ -17,10 +17,14 @@ class EnrolmentForm(forms.Form):
     level_python = forms.IntegerField()
    
     session_queryset = Session.objects.all().filter(open_bool=True)
-    session = forms.ModelMultipleChoiceField(queryset=session_queryset,
-                                    widget=forms.CheckboxSelectMultiple(choices=Session.objects.all()),
-                                    required=True
-                                    )
+    
+    # not working yet:
+    #session = forms.ChoiceField(queryset=session_queryset,
+    #                            widget=forms.RadioSelect(Choices=Session.objects.all(),
+    #                                required=True)
+    session = forms.ModelMultipleChoiceField(queryset=session_queryset,                        
+            widget=forms.CheckboxSelectMultiple(choices=Session.objects.all()),
+                                    required=True)
     n_sessions = len(session_queryset)
 
     confirmation_email = forms.BooleanField(initial=False)

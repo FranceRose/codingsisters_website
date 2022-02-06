@@ -62,7 +62,7 @@
       <div class="form-group">
         <label for="phone">Téléphone *</label>
         <font color="#89023E">{{form.phone.errors}}</font>
-        <input type="text" class="form-control" name = "phone" placeholder="Entre ton numéro de téléphone portable (facultatif)" value={{form.phone.value|default_if_none:''}}>
+        <input type="text" class="form-control" name = "phone" placeholder="Entre ton numéro de téléphone portable" value={{form.phone.value|default_if_none:''}}>
       </div>
 
 
@@ -142,15 +142,17 @@
       <label for = "name">Pour quelle(s) session(s) souhaites-tu t'inscrire ? </label>
       {% if form.n_sessions > 0 %}
       <p>Tu t'engages à venir à toutes les séances d'une session.</p>
+      <p>La session du samedi est en <b>présentiel</b> à Paris. La session du mercredi est le <b>soir en distanciel</b>.</p>
 
       <div class="checkbox">
       {% for checkbox in form.session %}
-          {{ checkbox }}
-<!--           <label class = "checkbox">
-            <input type = "checkbox" name = "session" id="session" {% if checkbox.value == True %}checked{% endif%}> {{checkbox.published}}
-         </label> -->
+      {{ checkbox }}
+      <!--     <label class = "checkbox">
+            <input type = "checkbox" name = "session" id="session" {% if checkbox.value == True %}checked{% endif%}>
+      </label> -->
       {% endfor %}
       </div>
+
       {% endif %}
 
       {% if form.n_sessions == 0 %}
@@ -162,7 +164,7 @@
         <input type="text" class="form-control" id= "botcheck" placeholder=""/>
       </div> -->
 
-
+    <p></p>
     <div class = "checkbox">
 	    <label><input name="confirmation_email" type = "checkbox" {% if form.confirmation_email.value == True %}checked{% endif%}> <b>[Consentement RGPD]</b> Par ton inscription, tu acceptes que les données fournies soient consultées et utilisées par les membres de l'encadrement de Coding Sisters afin de t'informer de nos actions et mener le tutorat à bien. Si tu as moins de 15 ans, c'est ton/ta responsable légal.e qui doit donner son consentement. Tes données seront supprimées 3 ans après le dernier contact ou plus tôt à ta demande.</label>
  </div>

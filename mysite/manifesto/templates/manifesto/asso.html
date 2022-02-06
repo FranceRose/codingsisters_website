@@ -1,0 +1,130 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block content %}
+
+    <style type="text/css">
+            p {
+    		<!--padding-left: 40px;-->
+    	       width: 60%;
+    	       text-overflow: ellipsis;
+                }
+    </style>
+    <div class="section">
+        <div style="        width: 40vw;
+                            min-width: 100px; 
+                            max-width: 170px; 
+                            background: rgba(255,255,255,0.9); 
+                            font-size: 16px; 
+                            padding-left: min(2.5vw, 10px);
+                            padding-top: 1vh;
+                            padding-bottom: 1vh;
+                            border: 1px solid #F5C23C; 
+                            justify-content: center; ">
+                    <conteneur  style=" display: flex;
+                                align-items: center;
+                            height: 50px;   ">
+                        <img src="{% static "images/ens_logo.jpg" %}" alt="ttps://www.ens.psl.eu/" style="width: 35vw; min-width: 60px; max-width: 150px">
+                    </conteneur>
+                </div>
+        <h3><a href="https://www.ens.psl.eu/" target="_blank" rel="noopener noreferrer">L'Ecole Normale Supérieure </a></h3>
+
+
+        <ul type="circle" style="margin-left :3%;">
+            <li><p>accueille les tutorats Coding Sisters depuis le début de l'aventure !</p></li>
+        </ul>
+        <ul type="circle" style="margin-left :3%;">
+            <li><p>a consacré un <a href="https://www.ens.psl.eu/actualites/briser-les-codes-l-initiative-coding-sisters" target="_blank" rel="noopener noreferrer">article</a> à l'histoire et aux engagements de Coding Sisters. Bonne lecture ;)</p></li>
+            
+        </ul>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+
+    <div class="section">
+                <div style="width: 40vw;
+                            font-size: 16px; 
+                            min-width: 60px; 
+                            max-width: 85px;   
+                            padding-left: min(2.5vw, 10px);
+                            padding-top: 1vh;
+                            padding-bottom: 1vh;    
+                            padding-right: 2.5vw;   
+                            border: 1px solid #F5C23C; 
+                            background: rgba(93, 93, 93, 1);
+                            justify-content: center; 
+                            display: inline-block;">
+<!--                     <conteneur  style=" display: flex;
+                                align-items: center;
+                            height: 50px;   "> -->
+                        <img src="{% static "images/cercleFSER.png" %}" style="width: 20vw; min-width: 30px; max-width: 60px" alt="http://www.cerclefser.org/fr/">
+                    <!-- </conteneur> -->
+                </div>
+        <h3><a href="http://www.cerclefser.org/fr/" target="_blank" rel="noopener noreferrer">Le Cercle FSER </a></h3>
+
+	<ul type="circle" style="margin-left :3%;">		
+		<li>
+			<p>promeut des actions de vulgarisation et de médiation scientifique dans lesquelles ils peuvent s'impliquer. Tenez vous au courant grâce à la newsletter <a href="http://www.cerclefser.org/fr/la-scitoyenne/" target="_blank" rel="noopener noreferrer">La Scitoyenne</a> à destination des chercheuses et chercheurs !
+			</p>
+
+		</li>
+	</ul>
+	<ul type="circle" style="margin-left :3%;">
+		<li>
+			<p>organise des rencontres ("speed-meeting") entre élèves et personnels de recherche. 
+				<i><b>DECLICS</b> (<span style="color: #666600">D</span>ialogues <span style="color: #666600">E</span>ntre <span style="color: #666600">C</span>hercheurs et <span style="color: #666600">L</span>ycéens pour les <span style="color: #666600">I</span>ntéresser à la <span style="color: #666600">C</span>onstruction des <span style="color: #666600">S</span>avoirs)</i> a un triple objectif d'orientation, d'acculturation à la recherche et de formation citoyenne. Ces rencontres ont déjà bénéficié à 20 000 élèves dans plus de 20 académies. Si vous êtes enseignant.e.s ou chercheur.se.s, renseignez vous vite sur leur <a href=
+					"http://www.cerclefser.org/fr/declics/" target="_blank" rel="noopener noreferrer">site</a>.</p>
+			<img src="{% static "images/declics.png" %}" alt="http://www.cerclefser.org/fr/declics/" style="width: 75vw; min-width: 100px; max-width: 700px">
+
+
+		</li>
+		
+	</ul>
+    </div>
+
+&nbsp;&nbsp;&nbsp;
+
+    <div class="section">
+                    <div style="    
+                                width: 55vw;
+                                /*height: 6vh;*/
+                                min-width: 52px; 
+                                max-width: 420px;
+                                /*min-height: 5px; 
+                                max-height: 72px;*/
+                                background: rgba(29,101,94,1); 
+                                font-size: 16px; 
+                                padding-left: min(2.5vw, 10px);
+                                padding-top: 1vh;
+                                padding-bottom: 1vh;
+                                padding-right: 2.5vw;
+                                border: 1px solid #1D655E; 
+
+                                justify-content: center;
+                                display: inline-block;"> 
+<!--                     <conteneur  style=" display: flex;
+                                             align-items: center;
+                                             height: 8vh;   "> -->
+                            <img src="{% static "images/logoGCC.png" %}" style="width: 50vw; min-width: 50px; max-width: 400px;" alt="https://girlscancode.fr/">
+                    </conteneur>
+                 </div> 
+        <h3><a href="https://girlscancode.fr/" target="_blank" rel="noopener noreferrer">Girls Can Code!</a></h3>
+
+            <ul type="circle" style="margin-left: 3%;">
+				<li><p>organise des <a href="https://girlscancode.fr/" target="_blank" rel="noopener noreferrer">stages d'initiation à la programmation</a> à destination des collégiennes et des lycénnes, sur un week-end ou une semaine. Et ce, dans plusieurs villes de France !</p>
+
+				</li>
+            </ul> 
+
+
+                     
+        </div>
+
+
+
+
+{% endblock %}
+
+
+
+
